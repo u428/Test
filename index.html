@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajabboy</title>
+</head>
+<body>
+
+
+    <script>
+
+
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  "mapLocation": {
+    "longitude": 41.31171942582182,
+    "latitude": 69.27977551487807
+  },
+  "userLocation": {
+    "longitude": 69.27977551487807,
+    "latitude": 41.311719425821
+  }
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("http://localhost:8080/api/pitch/home", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+
+
+    </script>
+
+    
+    
+</body>
+</html>
